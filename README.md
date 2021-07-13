@@ -1,0 +1,2 @@
+# stocks
+Stocks django project
