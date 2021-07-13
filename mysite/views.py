@@ -10,13 +10,6 @@ def charts(request):
     return render(request, 'charts.html')
 
 def uvolume(request):
-    # context = {}
-    # sticker = request.POST.get('sticker', None)
-    # context['sticker'] = sticker
-    # data_start = request.POST.get('data_start', None)
-    # context['data_start'] = data_start
-    # data_end = request.POST.get('data_end', None)
-    # context['data_end'] = data_end
     import requests
     import json
 
@@ -31,4 +24,4 @@ def uvolume(request):
     response = requests.request("GET", url, headers=headers, params=querystring)
     response = json.loads(response.text)
 
-    return render(request, 'unusualvolume.html', response)
+    return render(request, 'unusualvolume.html', {'response': response})
