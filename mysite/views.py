@@ -3,25 +3,19 @@ from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Home")
+    return render(request, 'index.html')
 
-def charts(request):
+def home(request):
+    return render(request, 'home.html')
 
-    return render(request, 'charts.html')
+def signup(request):
+    return render(request, 'signup.html')
 
-def uvolume(request):
-    import requests
-    import json
+def login(request):
+    return render(request, 'login.html')
 
-    url = "https://twelve-data1.p.rapidapi.com/stocks"
+def recover(request):
+    return render(request, 'recover.html')
 
-    querystring = {"exchange": "NASDAQ", "format": "json"}
-
-    headers = {
-        'x-rapidapi-key': "9c714f9a9fmsh22461f0b6d7e572p1bb1b3jsn9e2c7d195b1c",
-        'x-rapidapi-host': "twelve-data1.p.rapidapi.com"
-    }
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    response = json.loads(response.text)
-
-    return render(request, 'unusualvolume.html', {'response': response})
+def contact(request):
+    return render(request, 'contact.html')
