@@ -55,3 +55,7 @@ def uvolume(request):
     response = json.loads(response.text)
 
     return render(request, 'unusualvolume.html', {'response': response})
+
+
+def equity(request):
+    return render(request, 'equitylevel.html')
