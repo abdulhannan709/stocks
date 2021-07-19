@@ -108,12 +108,17 @@
 
                                       <div class="tab-pane active" id="tab_default_2">
                                         <div class="panel panel-body">
-                                             <form class="intro-form" action="#" id="invite" method="POST">
-                                                        <h5><i class="fa fa-user"></i> Register<span>Don't have an account? Register to start trading</span></h5>
-                                                        <input name="fname" id="fname" class="fname" placeholder="Full Name" type="text" required="required">
+                                             <form class="intro-form" action="signup" id="invite" method="POST">
+                                                {% csrf_token %}
+                                                <h5><i class="fa fa-user"></i> Register<span>Don't have an account? Register to start trading</span></h5>
+                                                        {{ register_form.username }} 
+                                                        {{ register_form.email }} 
+                                                        {{ register_form.password1 }} 
+                                                        {{ register_form.password2 }} 
+                                                        <!-- <input name="fname" id="fname" class="fname" placeholder="Full Name" type="text" required="required">
                                                         <input type="email" placeholder="Email Address" name="email" required="required">
                                                         <input type="password" placeholder="Password" class="form-control" required="required">
-                                                        <input type="password" placeholder="Repeat Password" class="form-control" required="required">
+                                                        <input type="password" placeholder="Repeat Password" class="form-control" required="required"> -->
                                                         <button type="submit" class="btn btn-secondary btn-block">Register</button>
 
                                                         <p>By Signing up you agree to our <a href="#">terms of conditions</a></p>

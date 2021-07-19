@@ -111,9 +111,12 @@
                                       <div class="tab-pane active" id="tab_default_2">
                                         <div class="panel panel-body">
                                             <form class="intro-form" action="#" id="invite-2" method="POST">
+                                                {% csrf_token %}
                                                <h5><i class="fa fa-key"></i> Sign in<span>Have an account? Sign in</span></h5>
-                                               <input name="email" id="email" class="email" placeholder="Email Address" type="text" required="required">
-                                               <input type="password" placeholder="Password" name="pass" required="required">
+                                               {{ login_form.username }}
+                                               {{ login_form.password }}
+                                               <!-- <input name="email" id="email" class="email" placeholder="Email Address" type="text" required="required">
+                                               <input type="password" placeholder="Password" name="pass" required="required"> -->
                                                <button type="submit" class="btn btn-secondary btn-block">Sign In</button>
 
                                                <p>By Clicking Get Trial you agree to our terms of conditions of this product</p>
