@@ -203,8 +203,7 @@
                         <span class="item-text">Historical</span>
                      </a>
                   </li>
-                  
-                  <li href="{% url 'equity' %}" class="active">
+                  <li>
                      <a href="{% url 'equity' %}" title="Dashboard" class="">
                      <em class="fa fa-bar-chart"></em>
                      <span class="item-text">Equity Levels</span>
@@ -228,22 +227,22 @@
                         <span class="item-text">Top OI Change</span>
                      </a>
                   </li>
-                  <li>
-                     <a href="{% url 'exporttool' %}" title="Pages" data-toggle="collapse-next" class="has-submenu">
+                  <li href="{% url 'exporttool' %}" class="active">
+                     <a href="exporttool.html" title="Dashboard" class="">
                      <em class="fa fa-download"></em>
                      <span class="item-text">Export Tool</span>
                      </a>
                     
                   </li>
-                  <li >
-                     <a href="{% url 'charts' %}" title="Dashboard" class="">
+                  <li>
+                     <a href="{% url 'home' %}" title="Dashboard" class="">
                      <em class="fa fa-bar-chart"></em>
                      <span class="item-text">Charts</span>
                      </a>
                     
                   </li>
                   <li>
-                     <a href="{% url 'help' %}" title="Pages" data-toggle="collapse-next" class="has-submenu">
+                     <a href="{% url 'help' %}" title="Dashboard" class="">
                      <em class="fa fa-question-circle"></em>
                      <span class="item-text">Help</span>
                      </a>
@@ -269,129 +268,299 @@
 <input type="date" id="start" name="data-start"
        value="2018-07-22"
        min="2017-01-01" max="2021-12-31">
-       <label  for="MStrength">&nbsp;&nbsp;Min Strength&nbsp;&nbsp;</label>
-                           
-                                 
-                                 
-                                    <input type="text" id="MStrength" name="MStrength" placeholder="Filter out weaker levels. (0-100)" size="30">
+       <label for="end">&nbsp;&nbsp;End date:&nbsp;&nbsp;</label>
+
+<input type="date" id="end" name="data-end"
+       value="2018-07-22"
+       min="2017-01-01" max="2021-12-31">
                                     <span class="input-group-btn">
-                                    <input type="submit" class="btn btn-primary" value="Go!">
+                                    <input type="submit" class="btn btn-primary" value="GET DATA →">
                                     </span>
                                  </div>
                               </div>
+                              <br><br><br>
+                              <p> 
+                                 <button id="btnExport" class="btn btn-primary" onclick="javascript:xport.toCSV('option_export__07/19/21');"> Export Options Data to CSV ↓</button></p>
                      </div>
                   </fieldset>
                </form>
-             <div class="col-sm-10">
-                <p><strong>AVG Daily Volume:</strong> 60,806,851 &nbsp;&nbsp;&nbsp;&nbsp;
-               <strong>Last Price: </strong>$431.34&nbsp;&nbsp;<span id="priceChangeDown" class="text-danger"><i class="fa fa-chevron-down down"></i></span> <span id="priceChargeFloat" class="text-danger">-3.41</span>
-               <span id="priceChangePercent" class="text-danger">(-0.78%)</span>
-                
-                <strong>52WK </strong> <i id="wk52high">$437.92</i>
-               <strong> H</strong> <i id="wk52low">$314.56</i><strong> L</strong>
-               </p>
-             </div>
-             <div class="row">
+                           
+                    <div class="row">
                             <div class="col-lg-12">
                                <div class="panel ">
-                                  <div class="panel-heading" > <h3>Levels.</h3>
-                                     
-                                  </div>
+                                  
                                   <table id="dtBasicExample" class="table table-striped table-bordered  table-sm" cellspacing="0" width="100%">
                                 <thead >
                                   <tr>
-                                   <th class="th-sm">Level</th>
+                                   <th class="th-sm">Date</th>
+                                              <th class="th-sm">Time</th>
+                                              <th class="th-sm">Ticker</th>
+                                              <th class="th-sm">Expiry</th>
+                                              <th class="th-sm">Strike</th>
+                                              <th class="th-sm">C/P</th>
+                                              <th class="th-sm">Spot</th>
+                                              <th class="th-sm">Qty</th>
+                                              <th class="th-sm">Price</th>
+                                              <th class="th-sm">Type</th>
                                               <th class="th-sm">Volume</th>
-                                              <th class="th-sm">Money Flow</th>
-                                              <th class="th-sm">% of AVG VOL</th>
-                                              <th class="th-sm">Strength <i>(MAX 100)</i></th>
+                                              <th class="th-sm">OI</th>
+                                              <th class="th-sm">Premium</th>
+                                              <th class="th-sm">Sector</th>
+                                              <th class="th-sm">Unusual</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-    <tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
+    <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+<tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+               <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+               <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+               <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+               <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+               <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+               <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
+               <tr> 
+                  <td>7/19/21</td>
+                  <td>13:22:59.604</td>
+                  <td>WISH</td>
+                  <td>2021-07-23</td>
+                  <td>10</td>
+                  
+                  <td>CALLS</td>
+                  <td>9.32</td> 
+                  
+                  <td class="qty">597</td> 
+                  <td>0.2</td>  
+                  
+                  
+                  
+                  
+                  <td>SWEEP</td>
+                  <td class="volume">14701</td>
+                  <td class="openint">10742</td>
+                  <td>$11,940</td> 
+                  
+                  <td>Discretionary</td> 
+ 
+                  <td class="unusual">FALSE</td>                  
+               </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-
-                    
             </section>
          </section>
       </section>
-      <script src="{% static 'plugins/jquery/jquery.js' %}"></script>
-      <script src="{% static 'plugins/velocity/velocity.js' %}"></script>
-      <script src="{% static 'plugins/velocity/velocity.ui.js' %}"></script>
-      <script src="{% static 'plugins/bootstrap/js/bootstrap.js' %}"></script>
-      <script src="{% static 'plugins/chosen/chosen.jquery.js' %}"></script>
-      <script src="{% static 'plugins/slider/js/bootstrap-slider.js' %}"></script>
-      <script src="{% static 'plugins/filestyle/bootstrap-filestyle.js' %}"></script>
-      <script src="{% static 'plugins/animo/animo.js' %}"></script>
-      <script src="{% static 'plugins/sparklines/jquery.sparkline.js' %}"></script>
-      <script src="{% static 'plugins/slimscroll/jquery.slimscroll.js' %}"></script>
-      <script src="{% static 'plugins/datatable/media/js/jquery.dataTables.js' %}"></script>
-      <script src="{% static 'plugins/datatable/extensions/datatable-bootstrap/js/dataTables.bootstrap.js' %}"></script>
-      <script src="{% static 'plugins/datatable/extensions/datatable-bootstrap/js/dataTables.bootstrapPagination.js' %}"></script>
-      <script src="{% static 'tradify/highcharts.js' %}"></script>
-      <script src="{% static 'tradify/exporting.js' %}"></script>
-      <script src="{% static 'plugins/datatable/extensions/ColVis/js/dataTables.colVis.js' %}"></script>
-      <!--[if lt IE 8]><script src="{% static 'js/excanvas.min.js' %}"></script><![endif]-->
-      <script src="{% static 'app/js/tradify.js' %}"></script>
+      <script src="plugins/jquery/jquery.js"></script>
+      <script src="plugins/velocity/velocity.js"></script>
+      <script src="plugins/velocity/velocity.ui.js"></script>
+      <script src="plugins/bootstrap/js/bootstrap.js"></script>
+      <script src="plugins/chosen/chosen.jquery.js"></script>
+      <script src="plugins/slider/js/bootstrap-slider.js"></script>
+      <script src="plugins/filestyle/bootstrap-filestyle.js"></script>
+      <script src="plugins/animo/animo.js"></script>
+      <script src="plugins/sparklines/jquery.sparkline.js"></script>
+      <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+      <script src="plugins/datatable/media/js/jquery.dataTables.js"></script>
+      <script src="plugins/datatable/extensions/datatable-bootstrap/js/dataTables.bootstrap.js"></script>
+      <script src="plugins/datatable/extensions/datatable-bootstrap/js/dataTables.bootstrapPagination.js"></script>
+      <script src="tradify/highcharts.js"></script>
+      <script src="tradify/exporting.js"></script>
+      <script src="plugins/datatable/extensions/ColVis/js/dataTables.colVis.js"></script>
+      <!--[if lt IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
+      <script src="app/js/tradify.js"></script>
       <script>
         $(document).ready(function () {
 $('#dtBasicExample').DataTable({

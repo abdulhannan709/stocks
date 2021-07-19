@@ -69,7 +69,6 @@ def charts(request):
     fig.show()
 
     return render(request, 'charts.html', {'response': data})
-    # return render(request, 'charts.html')
 
 def uvolume(request):
     import requests
@@ -91,3 +90,9 @@ def uvolume(request):
 
 def equity(request):
     return render(request, 'equitylevel.html')
+
+def help(request):
+    return render(request, 'help.html')
+
+def exporttool(request):
+    return render(request, 'exporttool.html')
