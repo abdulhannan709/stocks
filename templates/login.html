@@ -64,7 +64,7 @@
                 <div class="navbar-collapse collapse" id="data-scroll">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="home.html">Home</a>
+                            <a href="{% url 'home' %}">Home</a>
                         </li>
                      
                       </li>
@@ -78,13 +78,13 @@
                             <a href="#blog">Blog</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="{% url 'contact' %}">Contact</a>
                         </li>
                         <li class="active">
-                            <a href="login.html">Login</a>
+                            <a href="{% url 'login' %}">Login</a>
                         </li>
                         <li >
-                            <a href="signup.html">Sign Up</a>
+                            <a href="{% url 'signup' %}">Sign Up</a>
                         </li>
                     </ul>
                 </div>
