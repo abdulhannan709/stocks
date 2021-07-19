@@ -17,6 +17,7 @@
    <link rel="stylesheet" href="{% static 'plugins/csspinner/csspinner.min.css' %}">
    <link rel="stylesheet" href="{% static 'app/css/app.css' %}">
    <link rel="stylesheet" href="{% static 'css/datTables.css' %}">
+   <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
    <script src="{% static 'plugins/modernizr/modernizr.js' %}"></script>
    <script src="{% static 'plugins/fastclick/fastclick.js' %}"></script>
 
@@ -210,7 +211,7 @@
                   </a>
                </li>
                <li>
-                  <a href="#" title="Dashboard" class="">
+                  <a href="{% url 'equity' %}" title="Dashboard" class="">
                      <em class="fa fa-align-left"></em>
                      <span class="item-text">Equity Levels</span>
                   </a>
@@ -222,7 +223,7 @@
                   </a>
                </li>
                <li class="active">
-                  <a href="unusualvolume.html" title="Dashboard" class="">
+                  <a href="{% url 'uvolume' %}" title="Dashboard" class="">
                      <em class="fa fa-exclamation-circle"></em>
                      <span class="item-text">Unusual Volume</span>
                   </a>
@@ -234,21 +235,21 @@
                   </a>
                </li>
                <li>
-                  <a href="#" title="Pages" data-toggle="collapse-next" class="has-submenu">
+                  <a href="{% url 'exporttool' %}" title="Pages" data-toggle="collapse-next" class="has-submenu">
                      <em class="fa fa-download"></em>
                      <span class="item-text">Export Tool</span>
                   </a>
 
                </li>
                <li>
-                  <a href="charts.html" title="Dashboard" class="">
+                  <a href="{% url 'charts' %}" title="Dashboard" class="">
                      <em class="fa fa-bar-chart"></em>
                      <span class="item-text">Charts</span>
                   </a>
 
                </li>
                <li>
-                  <a href="#" title="Dashboard" class="">
+                  <a href="{% url 'help' %}" title="Dashboard" class="">
                      <em class="fa fa-question-circle"></em>
                      <span class="item-text">Help</span>
                   </a>
