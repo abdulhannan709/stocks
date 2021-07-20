@@ -279,8 +279,9 @@
                                  </div>
                               </div>
                               <br><br><br>
-                              <p> 
-                                 <button id="btnExport" class="btn btn-primary" onclick="javascript:xport.toCSV('option_export__07/19/21');"> Export Options Data to CSV ↓</button></p>
+                              <p> <a href="{% url 'download' %}">
+                                 <button id="btnExport" class="btn btn-primary" > Export Options Data to CSV ↓</button>
+                              </a></p>
                      </div>
                   </fieldset>
                </form>

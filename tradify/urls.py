@@ -9,4 +9,5 @@ urlpatterns = [
     path('equity/', views.equity, name='equity'),
     path('help/', views.help, name='help'),
     path('exporttool/', views.exporttool, name='exporttool'),
+    path('download/', views.download, name='download'),
 ]

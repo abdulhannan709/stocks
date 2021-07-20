@@ -1,16 +1,19 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
+import pandas as pd
+from pandas_datareader import data as web
+import plotly.graph_objects as go
+from pandas import ExcelWriter
+import os
+from django.conf import settings
+import requests
+import json
 
 
 def index(request):
     return HttpResponse("Home")
 
 def charts(request):
-        
-    import pandas as pd
-    from pandas_datareader import data as web
-    import plotly.graph_objects as go
-
     stock = 'MSFT'
  
     df = web.DataReader(stock, data_source='yahoo', start='01-01-2019')
@@ -70,8 +73,6 @@ def charts(request):
     return render(request, 'charts.html', {'response': data})
 
 def uvolume(request):
-    import requests
-    import json
 
     url = "https://twelve-data1.p.rapidapi.com/stocks"
 
@@ -88,10 +89,42 @@ def uvolume(request):
 
 
 def equity(request):
-    return render(request, 'equitylevel.html')
+    url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-financials"
+
+    querystring = {"symbol":"AMRN","region":"US"}
+
+    headers = {
+        'x-rapidapi-key': "9c714f9a9fmsh22461f0b6d7e572p1bb1b3jsn9e2c7d195b1c",
+        'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
+        }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    response = json.loads(response.text)
+
+    print(response)
+    return render(request, 'equitylevel.html', {'response': response})
 
 def help(request):
     return render(request, 'help.html')
 
 def exporttool(request):
+
+    stock = 'MSFT'
+    df = web.DataReader(stock, data_source='yahoo', start='01-01-2019')
+    writer = ExcelWriter('PythonExport.xlsx')
+    df.to_excel(writer,'Sheet1')
+    writer.save()
     return render(request, 'exporttool.html')
+
+
+
+def download(request, path):
+    # file_path = os.path.join(settings.MEDIA_ROOT, path)
+    # if os.path.exists(''):
+    print('download')
+    file_path = './PythonExport.xlsx'
+    with open(file_path, 'rb') as fh:
+        response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+        response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+        return response
+    raise Http404
