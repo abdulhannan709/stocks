@@ -14,7 +14,6 @@ def charts(request):
     stock = 'MSFT'
  
     df = web.DataReader(stock, data_source='yahoo', start='01-01-2019')
-    print(df)
 
     trace1 = {
         'x': df.index,
