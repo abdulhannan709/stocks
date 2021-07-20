@@ -6,6 +6,12 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
+from django.forms.widgets import PasswordInput, TextInput
+
+class CustomAuthForm(AuthenticationForm):
+    username = forms.CharField(widget=TextInput(attrs={'class':'validate','placeholder': 'Email'}))
+    password = forms.CharField(widget=PasswordInput(attrs={'placeholder':'Password'}))
+
 
 def index(request):
     return render(request, 'index.html')
@@ -30,7 +36,7 @@ def signup(request):
 
 def login_page(request, user=None):
 	if request.method == "POST":
-		form = AuthenticationForm(request, data=request.POST)
+		form = CustomAuthForm(request, data=request.POST)
 		if form.is_valid():
 			username = form.cleaned_data.get('username')
 			password = form.cleaned_data.get('password')
@@ -43,7 +49,7 @@ def login_page(request, user=None):
 				messages.error(request,"Invalid username or password.")
 		else:
 			messages.error(request,"Invalid username or password.")
-	form = AuthenticationForm()
+	form = CustomAuthForm()
 	return render(request=request, template_name="login.html", context={"login_form":form})
 
 def recover(request):
