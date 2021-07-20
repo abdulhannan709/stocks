@@ -18,3 +18,10 @@ class NewUserForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+	def __init__(self, *args, **kwargs):
+		super(NewUserForm, self).__init__(*args, **kwargs)
+		self.fields['username'].widget.attrs['placeholder'] = 'Full Name'
+		self.fields['email'].widget.attrs['placeholder'] = 'Email Address'
+		self.fields['password1'].widget.attrs['placeholder'] = 'Password'
+		self.fields['password2'].widget.attrs['placeholder'] = 'Repeat Password'
