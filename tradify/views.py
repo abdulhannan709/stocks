@@ -85,7 +85,7 @@ def uvolume(request):
     response = requests.request("GET", url, headers=headers, params=querystring)
     response = json.loads(response.text)
 
-    return render(request, 'unusualvolume.html', {'response': response})
+    return render(request, 'unusualvolume.html', {'response': response['data'][1:100]})
 
 
 def equity(request):
@@ -101,7 +101,6 @@ def equity(request):
     response = requests.request("GET", url, headers=headers, params=querystring)
     response = json.loads(response.text)
 
-    print(response)
     return render(request, 'equitylevel.html', {'response': response})
 
 def help(request):
