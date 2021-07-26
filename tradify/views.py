@@ -11,7 +11,7 @@ import json
 
 
 def index(request):
-    return HttpResponse("Home")
+    return render(request, 'index.html')
 
 def charts(request):
     stock = 'MSFT'
