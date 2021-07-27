@@ -274,11 +274,24 @@
                         <thead>
                            <tr>
                               <th class="th-sm">Symbol</th>
-                              <th class="th-sm">Option Volume</th>
-                              <th class="th-sm">Puts</th>
-                              <th class="th-sm">Calls</th>
-                              <th class="th-sm">Multiple</th>
-                              <th class="th-sm">ADV</th>
+                                              <th class="th-sm">Option Volume</th>
+                                              <th class="th-sm">Puts</th>
+                                              <th class="th-sm">Calls</th>
+                                              <th class="th-sm">Multiple</th>
+                                              <th class="th-sm">ADV</th>
+                                              <th class="th-sm">Option OI</th>
+                                              <th class="th-sm">Events</th>
+                                              <th class="th-sm">Spot</th>
+                                              <th class="th-sm">ATM IVOL CHG</th>
+                                              <th class="th-sm">Call Prem $(ASK) </th>
+                                              <th class="th-sm">Call Prem $(BID) </th>
+                                              <th class="th-sm">Put Prem $(ASK) </th>
+                                              <th class="th-sm">Put Prem $(BID) </th>
+                                              <th class="th-sm">Net Delta</th>
+                                              <th class="th-sm">Call Ask %</th>
+                                              <th class="th-sm">Call Bid %</th>
+                                              <th class="th-sm">Put Ask %</th>
+                                              <th class="th-sm">Put Bid %</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -291,6 +304,20 @@
                               <td>{{ i.exchange }}</td>
                               <td>{{ i.country }}</td>
                               <td>{{ i.type }} </td>
+                              <td >9,483,306</td>
+                              <td ></td>
+                              <td >137.94</td>
+                              <td >-0.3%</td>
+                             
+                              <td style="color: rgb(77, 255, 228);">$158,494,982</td>
+                              <td style="color: rgb(255, 130, 151);">$110,257,723</td>
+                              <td style="color: rgb(255, 130, 151);">$23,823,178</td>
+                              <td  style="color: rgb(77, 255, 228);">$31,574,473</td>
+                              <td  style="color: rgb(77, 255, 228);">7,866,710</td>
+                              <td  style="color: rgb(77, 255, 228);">24.1%</td>
+                              <td  style="color: rgb(255, 130, 151);">16.7%</td>
+                              <td  style="color: rgb(255, 130, 151);">27.0%</td>
+                              <td  style="color: rgb(77, 255, 228);">35.8%</td>
                            </tr>
                            {% endfor %}
 
