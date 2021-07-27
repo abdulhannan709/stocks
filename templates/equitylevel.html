@@ -283,7 +283,7 @@
                   </fieldset>
                </form>
              <div class="col-sm-10">
-                <p><strong>AVG Daily Volume:</strong> 60,806,851 &nbsp;&nbsp;&nbsp;&nbsp;
+                <p><strong>AVG Daily Volume:</strong> {{ response.price.averageDailyVolume10Day.raw }} &nbsp;&nbsp;&nbsp;&nbsp;
                <strong>Last Price: </strong>$431.34&nbsp;&nbsp;<span id="priceChangeDown" class="text-danger"><i class="fa fa-chevron-down down"></i></span> <span id="priceChargeFloat" class="text-danger">-3.41</span>
                <span id="priceChangePercent" class="text-danger">(-0.78%)</span>
                 
@@ -313,7 +313,7 @@
    <td>{{ response.summaryDetail.beta.raw }}</td>
    <td>{{ response.summaryDetail.volume.longFmt }}</td>
    <td>{{ response.summaryDetail.marketCap.fmt }}</td>
-   <td>{{ response.price.averageDailyVolume10Day }}</td>
+   <td>{{ response.price.averageDailyVolume10Day.raw }}</td>
    <td>{{ response.balanceSheetHistoryQuarterly.maxAge }}</td>
 </tr>
 </tbody>
