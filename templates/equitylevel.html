@@ -300,76 +300,27 @@
                                   <table id="dtBasicExample" class="table table-striped table-bordered  table-sm" cellspacing="0" width="100%">
                                 <thead >
                                   <tr>
-                                   <th class="th-sm">Level</th>
-                                              <th class="th-sm">Volume</th>
-                                              <th class="th-sm">Money Flow</th>
-                                              <th class="th-sm">% of AVG VOL</th>
-                                              <th class="th-sm">Strength <i>(MAX 100)</i></th>
+                                       <th class="th-sm">Level</th>
+                                       <th class="th-sm">Volume</th>
+                                       <th class="th-sm">Money Flow</th>
+                                       <th class="th-sm">AVG VOL</th>
+                                       <th class="th-sm">Strength <i>(MAX 100)</i></th>
                                     </tr>
                                  </thead>
                                  <tbody>
-    <tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
+    
 <tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
-</tr>
-<tr>
-   <td >422.11</td>
-   <td >11,682,775</td>
-   <td >$5B</td>
-   <td >19.21%</td>
-   <td>20</td>
+   <td>{{ response.summaryDetail.beta.raw }}</td>
+   <td>{{ response.summaryDetail.volume.longFmt }}</td>
+   <td>{{ response.summaryDetail.marketCap.fmt }}</td>
+   <td>{{ response.price.averageDailyVolume10Day }}</td>
+   <td>{{ response.balanceSheetHistoryQuarterly.maxAge }}</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-
                     
             </section>
          </section>
