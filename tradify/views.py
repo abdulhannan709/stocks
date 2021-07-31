@@ -70,11 +70,10 @@ def charts(request):
             }
         })
         fig = go.Figure(data=data, layout=layout)
-        fig.write_html("./BBAS3-web.html")
-        fig.show()
+        fig.write_image("./static/tradify/chart.png")
 
-        return render(request, 'charts.html', {'response': data})
-    return render(request, 'charts.html')
+        return render(request, 'charts.html', {'response': data, 'chart':'True'})
+    return render(request, 'charts.html', {'chart':'False'})
 
 def uvolume(request):
 

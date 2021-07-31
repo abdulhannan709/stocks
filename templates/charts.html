@@ -290,7 +290,11 @@
                                  <div class="panel-body">
                                     <h4>BTC-SC</h4>
                                     <div id="candlestickChart" class="h-500">
-                                       
+                                       {% if chart == 'True' %}
+                                          <img src="{% static 'tradify/chart.png' %}" alt="Chart">
+                                       {% else %}
+                                          <img src="" alt="Chart not available">
+                                       {% endif %}
                                     </div>
                                  </div>
                               </div>
