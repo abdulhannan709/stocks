@@ -284,8 +284,8 @@ def charge_credit_card(amount):
     # Create a merchantAuthenticationType object with authentication details
     # retrieved from the constants file
     merchantAuth = apicontractsv1.merchantAuthenticationType()
-    merchantAuth.name = CONSTANTS.apiLoginId
-    merchantAuth.transactionKey = CONSTANTS.transactionKey
+    merchantAuth.name = '6fVTC27yH'
+    merchantAuth.transactionKey = '9P7y7hGmj268Ja5b'
 
     # Create the payment data for a credit card
     creditCard = apicontractsv1.creditCardType()
