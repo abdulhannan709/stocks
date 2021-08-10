@@ -10,4 +10,6 @@ urlpatterns = [
     path('help/', views.help, name='help'),
     path('exporttool/', views.exporttool, name='exporttool'),
     path('download/', views.download, name='download'),
+    path('authorize/', views.authorize_credit_card, name='authorize'),
+    path('charge/', views.charge_credit_card, name='charge'),
 ]
