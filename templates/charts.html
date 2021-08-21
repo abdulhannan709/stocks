@@ -20,6 +20,8 @@
    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
    <script src="{% static 'plugins/modernizr/modernizr.js' %}"></script>
    <script src="{% static 'plugins/fastclick/fastclick.js' %}"></script>
+   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 
 </head>
 
@@ -293,14 +295,8 @@
                   <div class="panel panel-default">
                      <div class="panel-collapse">
                         <div class="panel-body">
-                           <h4>BTC-SC</h4>
-                           <div id="candlestickChart" class="h-500">
-                              {% if chart == 'True' %}
-                              <img src="{% static 'tradify/chart.png' %}" alt="Chart">
-                              {% else %}
-                              <img src="" alt="Chart not available">
-                              {% endif %}
-                           </div>
+                           <h4>Charts</h4>
+                           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                         </div>
                      </div>
                   </div>
@@ -337,6 +333,60 @@
          });
          $('.dataTables_length').addClass('bs-select');
       });
+   </script>
+
+   <script>
+      window.onload = function () {
+         var barData = {{ data| safe }};
+         var dataPoints = [];
+
+         var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            zoomEnabled: true, 
+            theme: "light2",
+            exportEnabled: true,
+            title: {
+               text: "Charts"
+            },
+            axisX: {
+               interval: 0.1,
+               valueFormatString: "MMM"
+            },
+            axisY: {
+               prefix: "$",
+               title: "Price"
+            },
+            toolTip: {
+               content: "Date: {x}<br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}"
+            },
+            data: [{
+               type: "candlestick",
+               yValueFormatString: "$##0.00",
+               dataPoints: dataPoints
+            }]
+         });
+
+         populateData();
+
+         function populateData() {
+            for (var i = 0; i < barData.length; i++) {
+               dataPoints.push({
+                  x: new Date(
+                     parseInt(barData[i]['Date'].split("-")[0]),
+                     parseInt(barData[i]['Date'].split("-")[1]),
+                     parseInt(barData[i]['Date'].split("-")[2])
+                  ),
+                  y: [
+                     barData[i]['High'],
+                     barData[i]['Low'],
+                     barData[i]['Open'],
+                     barData[i]['Close'],
+                  ]
+               });
+            }
+            chart.render();
+         }
+      }
    </script>
 </body>
 
